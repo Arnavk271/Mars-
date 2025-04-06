@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+void decodeout(char input[]) {
+    char decode[100];
+    int i;
+
+    for (i = 0; input[i] != '\0'; i++) {
+    
+        char ch = input[i];
+        if (ch >= 'a' && ch <= 'z') {
+                ch = ch - ('a-A'); 
+        }
+        int shift = i + 1; 
+        char original = ch - shift;
+        if (original < 'A') {
+            original = original + 26;
+        }
+
+        decode[i] = original;
+    }
+
+    decod[i] = '\0'; 
+    printf("Decoded Output is as follows: %s\n", decode);
+
+}
+
+int main() {
+    char in[100];
+    
+    printf("Enter the text: ");
+    scanf("%s", in);
+
+    decodeout(in);
+    
+    return 0;
+}
