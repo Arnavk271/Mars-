@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Enter the battery level:"
+read battery
+echo "The battery level: $battery%"
+
+battery=$(( battery % 101 ))
+echo "Normalized Battery level: $battery%"
+
+if [ "$battery" -lt 20 ]; then
+    echo "Battery low! Return to base!"
+    exit 1
+fi
+ping -c 1 -W 1 google.com > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "Communication failure!"
+    exit 1
+fi
+echo "All systems operational!"
