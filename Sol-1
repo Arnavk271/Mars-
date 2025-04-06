@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# 1. Create a new directory and move into it
+mkdir rover_mission
+cd rover_mission
+
+# 2. Create three empty text files
+touch log1.txt log2.txt log3.txt
+
+# 3. Rename log1.txt to mission_log.txt
+mv log1.txt mission_log.txt
+
+# 4. Find all files with .log extension
+echo "Files with .log extension:"
+find . -name "*.log"
+
+# 5. Show contents of mission_log.txt
+echo "Contents of mission_log.txt:"
+cat mission_log.txt
+
+# 6. Display lines with the word 'ERROR' in mission_log.txt
+echo "Lines containing 'ERROR':"
+grep "ERROR" mission_log.txt
+
+# 7. Count number of lines in mission_log.txt
+echo "Number of lines in mission_log.txt:"
+wc -l mission_log.txt
+
+# 8. Show current date and time
+echo "Current date and time:"
+date
+
+# 9. Show CPU usage (one-time snapshot)
+echo "CPU usage snapshot:"
+top -b -n 1 | head -n 10
+
+# 10. Schedule system shutdown in 10 minutes
+echo "Shutdown scheduled in 10 minutes (this line is commented out for safety)"
+# sudo shutdown +10
